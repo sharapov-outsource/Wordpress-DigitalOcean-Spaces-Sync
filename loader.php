@@ -12,6 +12,7 @@
 
  */
 
+require_once ABSPATH . DIRECTORY_SEPARATOR . 'wp-admin' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'file.php';
 require dirname(__FILE__) . DIRECTORY_SEPARATOR . 'dos_class.php';
 require dirname(__FILE__) . DIRECTORY_SEPARATOR . 'dos_class_filesystem.php';
 

@@ -76,6 +76,8 @@ class DOS {
 
     add_filter('wp_generate_attachment_metadata', array($this, 'filter_wp_generate_attachment_metadata'), 20, 1);
     // add_filter('wp_save_image_editor_file', array($this,'filter_wp_save_image_editor_file'), 10, 5 );
+    add_filter('wp_get_attachment_url', array($this, 'filter_wp_get_attachment_url') );
+    add_filter('wp_calculate_image_srcset', array($this, 'filter_wp_calculate_image_srcset') );
     add_filter('wp_unique_filename', array($this, 'filter_wp_unique_filename') );
     
   }
@@ -192,6 +194,48 @@ class DOS {
 
     return $new_filename;
 
+  }
+
+  public function filter_wp_get_attachment_url ($url) {
+    $uploads = wp_get_upload_dir();
+    $regex_string = $this->filter;
+
+    // prepare regex
+    if ( $regex_string == '*' || !strlen($regex_string)) {
+      $regex = false;
+    } else {
+      $regex = preg_match( $regex_string, $url);
+    }
+
+    if ( $regex ) {
+      $baseurl = str_replace(get_home_path(), get_site_url() . DIRECTORY_SEPARATOR, $uploads['basedir']);
+      $url = str_replace($this->upload_url_path, $baseurl, $url);
+    }
+
+    return $url;
+  }
+
+  public function filter_wp_calculate_image_srcset ($sources) {
+    $uploads = wp_get_upload_dir();
+    $regex_string = $this->filter;
+    $baseurl = str_replace(get_home_path(), get_site_url() . DIRECTORY_SEPARATOR, $uploads['basedir']);
+    
+    foreach ( $sources as $key => $value ) {
+
+      // prepare regex
+      if ( $regex_string == '*' || !strlen($regex_string)) {
+        $regex = false;
+      } else {
+        $regex = preg_match( $regex_string, $value['url']);
+      }
+
+      if ( $regex ) {
+        $sources[$key]['url'] = str_replace($this->upload_url_path, $baseurl, $value['url']);
+      }
+
+    }
+
+    return $sources;
   }
 
   // ACTIONS
