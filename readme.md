@@ -1,3 +1,7 @@
+# DEPRECATED PLUGIN
+This plugin will not be supported or updated, please use on your own risk.
+Thank you!
+
 ## DigitalOcean Spaces Sync
 This WordPress plugin syncs your media library with [DigitalOcean Spaces](https://goo.gl/SX2UwH) Container.
 
