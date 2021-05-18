@@ -1,5 +1,5 @@
 # DEPRECATED PLUGIN
-This plugin will not be supported or updated, please use on your own risk.
+This plugin will not be supported or updated, please use at your own risk.
 Thank you!
 
 ## DigitalOcean Spaces Sync
