@@ -3,7 +3,7 @@
         'name' => 'sharapov-outsource/do-spaces-wordpress-sync',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'de318abe588f7269cae7c6afbdefa3b0888dc036',
+        'reference' => '271ce0c5202d0a2b6d1878418df51414a032047a',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -157,7 +157,7 @@
         'sharapov-outsource/do-spaces-wordpress-sync' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'de318abe588f7269cae7c6afbdefa3b0888dc036',
+            'reference' => '271ce0c5202d0a2b6d1878418df51414a032047a',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
