@@ -386,9 +386,8 @@ class DOS {
 
       // check if readable and regex matched
       if ( is_readable($file) && !$regex ) {
-
         // create fiel in storage
-        $filesystem->put( $this->file_path($file), file_get_contents($file), [
+        $filesystem->write( $this->file_path($file), file_get_contents($file), [
           'visibility' => 'public'
         ]);
 
